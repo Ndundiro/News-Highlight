@@ -1,6 +1,6 @@
 {% macro displayNewsList(news_list) %}
 
-{% for source_row in news_list |batch(4)%}
+{% for news in news_list |batch(4)%}
 <div class="row">
 
 
@@ -9,16 +9,16 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <a href="/sources/{{sources.id}}">
-                    {{ sources.name}}
+                <a href="/news/{{news.id}}">
+                    {{ news.name}}
                 </a>
             </div>
             <div class="panel-body">
                 <p>
-                    {{ sources.description |truncate(100)}}
+                    {{ news.description |truncate(100)}}
 
                 </p>
-                <a href="/sources/{{sources.id}}" class="btn btn-success btn-sm">Visit {{sources.name}}</a>
+                <a href="/news/{{news.id}}" class="btn btn-success btn-sm">Visit {{sources.name}}</a>
             </div>
 
 
@@ -30,3 +30,11 @@
 {% endfor %}
 
 {% endmacro %}
+
+<!-- {% macro displayNewsList(news_list) %}
+
+    {% for news in news_list %}
+        <li>{{ news.name}}</li>
+    {% endfor %}
+
+{% endmacro %} -->
