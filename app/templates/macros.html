@@ -1,40 +1,32 @@
 {% macro displayNewsList(news_list) %}
 
-{% for news in news_list |batch(4)%}
+
+
+{% for news in news_list %}
 <div class="row">
-
-
-    {% for news in news_row %}
-    <div class="col-md-3">
-
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <a href="/news/{{news.id}}">
-                    {{ news.name}}
-                </a>
-            </div>
-            <div class="panel-body">
-                <p>
-                    {{ news.description |truncate(100)}}
-
-                </p>
-                <a href="/news/{{news.id}}" class="btn btn-success btn-sm">Visit {{sources.name}}</a>
-            </div>
-
-
-        </div>
+<div class="card col-md-3" >
+    <h3 class="card-title">{{ news.name}}</h3>
+    <div class="card-body">
+      <p class="card-text">{{ news.description |truncate(100) }}</p>
+      <a href="/news/{{news.id}}" class="btn btn-primary">Go {{news.name}}</a>
     </div>
-    {% endfor %}
-
+  </div>
 </div>
-{% endfor %}
 
-{% endmacro %}
+  {% endfor %}
 
-<!-- {% macro displayNewsList(news_list) %}
+  {% endmacro %}
 
-    {% for news in news_list %}
-        <li>{{ news.name}}</li>
-    {% endfor %}
 
-{% endmacro %} -->
+
+
+
+
+
+
+
+
+
+
+
+
